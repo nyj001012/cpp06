@@ -6,7 +6,7 @@
 /*   By: yena <yena@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 16:22:13 by yena              #+#    #+#             */
-/*   Updated: 2023/10/08 17:18:23 by yena             ###   ########.fr       */
+/*   Updated: 2023/10/08 17:29:32 by yena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,13 @@ bool isChar(std::string str) {
 }
 
 bool isInt(std::string str) {
-  try {
-	double num = std::stoi(str);
-  } catch (std::exception &e) {
-	return false;
+  int i = 0;
+
+  if (str[0] == '+' || str[0] == '-')
+	i++;
+  for (i; i < str.length(); i++) {
+	if (!std::isdigit(str[i]))
+	  return false;
   }
   return true;
 }

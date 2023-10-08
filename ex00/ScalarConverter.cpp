@@ -6,7 +6,7 @@
 /*   By: yena <yena@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 13:29:50 by yena              #+#    #+#             */
-/*   Updated: 2023/10/08 17:21:16 by yena             ###   ########.fr       */
+/*   Updated: 2023/10/08 18:00:53 by yena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,7 @@
 
 #include "ScalarConverter.hpp"
 
-int ScalarConverter::_int = 0;
 std::string ScalarConverter::_str = "";
-char ScalarConverter::_char = 0;
-float ScalarConverter::_float = 0.0f;
-double ScalarConverter::_double = 0.0;
 
 void ScalarConverter::convert(std::string str) {
   _str = str;
@@ -28,12 +24,8 @@ void ScalarConverter::convert(std::string str) {
 	strToSpecial();
   else if (isChar(_str))
 	strToChar();
-  else if (isInt(_str))
-	strToInt();
-  else if (isFloat(_str))
-	strToFloat();
-  else if (isDouble(_str))
-	strToDouble();
+  else if (isInt(_str) || isFloat(_str) || isDouble(_str))
+	strToNumeric();
   else
 	std::cout << "Error: Wrong argument" << std::endl;
 }
@@ -58,23 +50,50 @@ void ScalarConverter::strToChar() {
   std::cout << "double: " << static_cast<double>(_str[0]) << std::endl;
 }
 
-void ScalarConverter::strToInt() {
-  std::cout << "char: " << static_cast<char>(std::stoi(_str)) << std::endl;
-  std::cout << "int: " << std::stoi(_str) << std::endl;
-  std::cout << "float: " << static_cast<float>(std::stoi(_str)) << std::endl;
-  std::cout << "double: " << static_cast<double>(std::stoi(_str)) << std::endl;
+void ScalarConverter::strToNumeric() {
+  printChar();
+  printInt();
+  printFloat();
+  printDouble();
 }
 
-void ScalarConverter::strToFloat() {
-  std::cout << "char: " << static_cast<char>(std::stof(_str)) << std::endl;
-  std::cout << "int: " << static_cast<int>(std::stof(_str)) << std::endl;
-  std::cout << "float: " << std::stof(_str) << std::endl;
-  std::cout << "double: " << static_cast<double>(std::stof(_str)) << std::endl;
+void ScalarConverter::printChar() {
+  std::cout << "char: ";
+  if (std::stod(_str) < 32 || std::stod(_str) > 126)
+	std::cout << "Non displayable" << std::endl;
+  else
+	std::cout << static_cast<char>(std::stod(_str)) << std::endl;
 }
 
-void ScalarConverter::strToDouble() {
-  std::cout << "char: " << static_cast<char>(std::stod(_str)) << std::endl;
-  std::cout << "int: " << static_cast<int>(std::stod(_str)) << std::endl;
-  std::cout << "float: " << static_cast<float>(std::stod(_str)) << std::endl;
-  std::cout << "double: " << std::stod(_str) << std::endl;
+void ScalarConverter::printInt() {
+  std::cout << "int: ";
+  if (std::stod(_str) > INT_MAX || std::stod(_str) < INT_MIN)
+	std::cout << "impossible" << std::endl;
+  else
+  	std::cout << _str << std::endl;
 }
+
+void ScalarConverter::printFloat() {
+  std::cout << "float: ";
+  if (std::stof(_str) > FLOAT_MAX || std::stof(_str) < FLOAT_MIN)
+	std::cout << "impossible" << std::endl;
+  else {
+	std::cout << std::stof(_str);
+	if (std::stof(_str) == std::stoi(_str))
+	  std::cout << ".0";
+	std::cout << "f" << std::endl;
+  }
+}
+
+void ScalarConverter::printDouble() {
+  std::cout << "double: ";
+  if (std::stod(_str) > DOUBLE_MAX || std::stod(_str) < DOUBLE_MIN)
+	std::cout << "impossible" << std::endl;
+  else {
+	std::cout << std::stod(_str);
+	if (std::stod(_str) == std::stoi(_str))
+	  std::cout << ".0";
+	std::cout << std::endl;
+  }
+}
+

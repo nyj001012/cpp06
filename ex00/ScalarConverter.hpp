@@ -6,7 +6,7 @@
 /*   By: yena <yena@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 13:29:50 by yena              #+#    #+#             */
-/*   Updated: 2023/10/08 16:48:26 by yena             ###   ########.fr       */
+/*   Updated: 2023/10/08 18:01:15 by yena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,22 +21,25 @@
 #include <sstream>
 #include "utils.hpp"
 
+#define FLOAT_MAX 3.4028235e+38
+#define FLOAT_MIN -3.4028235e+38
+#define DOUBLE_MAX 1.7976931348623158e+308
+#define DOUBLE_MIN -1.7976931348623158e+308
+
 class ScalarConverter {
  private:
 
  public:
   static std::string _str;
-  static char _char;
-  static int _int;
-  static float _float;
-  static double _double;
 
   static void convert(std::string str);
   static void strToSpecial();
-  static void strToInt();
-  static void strToFloat();
-  static void strToDouble();
   static void strToChar();
+  static void strToNumeric();
+  static void printChar();
+  static void printInt();
+  static void printFloat();
+  static void printDouble();
 };
 
 #endif //EX00__SCALARCONVERTER_HPP_
