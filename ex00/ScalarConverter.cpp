@@ -6,7 +6,7 @@
 /*   By: yena <yena@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 13:29:50 by yena              #+#    #+#             */
-/*   Updated: 2023/10/08 17:01:25 by yena             ###   ########.fr       */
+/*   Updated: 2023/10/08 17:21:16 by yena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,13 +39,16 @@ void ScalarConverter::convert(std::string str) {
 }
 
 void ScalarConverter::strToSpecial() {
-  if (_str == "nan" || _str == "nanf")
-	std::cout << "char: impossible" << std::endl;
-  else
-	std::cout << "char: " << static_cast<char>(std::stof(_str)) << std::endl;
+  std::cout << "char: impossible" << std::endl;
   std::cout << "int: impossible" << std::endl;
-  std::cout << "float: " << _str << std::endl;
-  std::cout << "double: " << _str << std::endl;
+  std::cout << "float: "  << _str;
+  if (_str == "nan"
+	  || _str == "inf" || _str == "-inf" || _str == "+inf")
+	std::cout << "f";
+  std::cout << std::endl;
+  if (_str == "nanf"
+	  || _str == "inff" || _str == "-inff" || _str == "+inff")
+  std::cout << "double: " << _str.substr(0, _str.length() - 1) << std::endl;
 }
 
 void ScalarConverter::strToChar() {
