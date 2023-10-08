@@ -6,7 +6,7 @@
 /*   By: yena <yena@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 16:22:13 by yena              #+#    #+#             */
-/*   Updated: 2023/10/08 17:29:32 by yena             ###   ########.fr       */
+/*   Updated: 2023/10/08 18:05:58 by yena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ bool isSpecial(std::string str) {
 }
 
 bool isChar(std::string str) {
-  for (int i = 0; i < str.length(); i++) {
+  for (unsigned long i = 0; i < str.length(); i++) {
 	if (std::isdigit(str[i]))
 	  return false;
   }
@@ -34,11 +34,11 @@ bool isChar(std::string str) {
 }
 
 bool isInt(std::string str) {
-  int i = 0;
+  unsigned long start = 0;
 
   if (str[0] == '+' || str[0] == '-')
-	i++;
-  for (i; i < str.length(); i++) {
+	start++;
+  for (unsigned long i = start; i < str.length(); i++) {
 	if (!std::isdigit(str[i]))
 	  return false;
   }
@@ -48,6 +48,7 @@ bool isInt(std::string str) {
 bool isFloat(std::string str) {
   try {
 	float num = std::stof(str);
+	(void)num;
   } catch (std::exception &e) {
 	return false;
   }
@@ -57,6 +58,7 @@ bool isFloat(std::string str) {
 bool isDouble(std::string str) {
   try {
 	double num = std::stod(str);
+	(void)num;
   } catch (std::exception &e) {
 	return false;
   }
