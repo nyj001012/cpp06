@@ -6,7 +6,7 @@
 /*   By: yena <yena@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 13:29:50 by yena              #+#    #+#             */
-/*   Updated: 2023/10/08 18:00:53 by yena             ###   ########.fr       */
+/*   Updated: 2023/10/08 18:07:42 by yena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,9 @@ void ScalarConverter::strToSpecial() {
   std::cout << std::endl;
   if (_str == "nanf"
 	  || _str == "inff" || _str == "-inff" || _str == "+inff")
-  std::cout << "double: " << _str.substr(0, _str.length() - 1) << std::endl;
+  	std::cout << "double: " << _str.substr(0, _str.length() - 1) << std::endl;
+  else
+	std::cout << "double: " << _str << std::endl;
 }
 
 void ScalarConverter::strToChar() {
@@ -70,7 +72,7 @@ void ScalarConverter::printInt() {
   if (std::stod(_str) > INT_MAX || std::stod(_str) < INT_MIN)
 	std::cout << "impossible" << std::endl;
   else
-  	std::cout << _str << std::endl;
+  	std::cout << std::stoi(_str) << std::endl;
 }
 
 void ScalarConverter::printFloat() {
