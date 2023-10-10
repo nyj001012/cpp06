@@ -6,7 +6,7 @@
 /*   By: yena <yena@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 13:28:20 by yena              #+#    #+#             */
-/*   Updated: 2023/10/08 17:03:09 by yena             ###   ########.fr       */
+/*   Updated: 2023/10/10 15:13:03 by yena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,11 @@
 
 int main(int argc, char *argv[]) {
   if (argc != 2) {
-	std::cout << "Error: Wrong number of arguments" << std::endl;
+	  std::cout << "Error: Wrong number of arguments" << std::endl;
   }
   else {
-	std::string str = (std::string)argv[1];
-	ScalarConverter::convert(str);
+    std::string str = (std::string)argv[1];
+    ScalarConverter::convert(str);
   }
   return 0;
 }
