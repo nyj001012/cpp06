@@ -6,7 +6,7 @@
 /*   By: yena <yena@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 16:31:02 by yena              #+#    #+#             */
-/*   Updated: 2023/10/09 16:34:48 by yena             ###   ########.fr       */
+/*   Updated: 2023/10/11 15:09:16 by yena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 
 #include "Base.hpp"
 
-class A: public Base {
+class A : public Base {
 
 };
 

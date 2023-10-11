@@ -6,7 +6,7 @@
 /*   By: yena <yena@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 16:22:13 by yena              #+#    #+#             */
-/*   Updated: 2023/10/08 18:05:58 by yena             ###   ########.fr       */
+/*   Updated: 2023/10/11 15:07:17 by yena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,17 +18,17 @@
 
 bool isSpecial(std::string str) {
   if (str == "nan" || str == "nanf"
-	  || str == "+inf" || str == "+inff"
-	  || str == "-inf" || str == "-inff"
-	  || str == "inf" || str == "inff")
-	return true;
+      || str == "+inf" || str == "+inff"
+      || str == "-inf" || str == "-inff"
+      || str == "inf" || str == "inff")
+    return true;
   return false;
 }
 
 bool isChar(std::string str) {
   for (unsigned long i = 0; i < str.length(); i++) {
-	if (std::isdigit(str[i]))
-	  return false;
+    if (std::isdigit(str[i]))
+      return false;
   }
   return true;
 }
@@ -37,30 +37,30 @@ bool isInt(std::string str) {
   unsigned long start = 0;
 
   if (str[0] == '+' || str[0] == '-')
-	start++;
+    start++;
   for (unsigned long i = start; i < str.length(); i++) {
-	if (!std::isdigit(str[i]))
-	  return false;
+    if (!std::isdigit(str[i]))
+      return false;
   }
   return true;
 }
 
 bool isFloat(std::string str) {
   try {
-	float num = std::stof(str);
-	(void)num;
+    float num = std::stof(str);
+    (void) num;
   } catch (std::exception &e) {
-	return false;
+    return false;
   }
   return true;
 }
 
 bool isDouble(std::string str) {
   try {
-	double num = std::stod(str);
-	(void)num;
+    double num = std::stod(str);
+    (void) num;
   } catch (std::exception &e) {
-	return false;
+    return false;
   }
   return true;
 }
