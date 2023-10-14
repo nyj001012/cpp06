@@ -6,7 +6,7 @@
 /*   By: yena <yena@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 16:30:07 by yena              #+#    #+#             */
-/*   Updated: 2023/10/09 16:30:52 by yena             ###   ########.fr       */
+/*   Updated: 2023/10/14 14:53:29 by yena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,9 @@
 
 class Base {
  public:
+  Base();
+  Base(const Base &other);
+  Base &operator=(const Base &base);
   virtual ~Base() {};
 };
 

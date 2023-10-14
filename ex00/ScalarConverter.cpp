@@ -6,7 +6,7 @@
 /*   By: yena <yena@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 13:29:50 by yena              #+#    #+#             */
-/*   Updated: 2023/10/11 15:13:03 by yena             ###   ########.fr       */
+/*   Updated: 2023/10/14 14:52:14 by yena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,21 @@
 #include "ScalarConverter.hpp"
 
 std::string ScalarConverter::_str = "";
+
+void ScalarConverter::ScalarConverter() {}
+
+void ScalarConverter::ScalarConverter(const ScalarConverter &other) {
+  if (this != &other)
+    _str = other._str;
+}
+
+ScalarConverter &ScalarConverter::operator=(const ScalarConverter &other) {
+  if (this != &other)
+    _str = other._str;
+  return *this;
+}
+
+ScalarConverter::~ScalarConverter() {}
 
 void ScalarConverter::convert(std::string str) {
   _str = str;

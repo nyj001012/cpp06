@@ -6,7 +6,7 @@
 /*   By: yena <yena@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 14:31:30 by yena              #+#    #+#             */
-/*   Updated: 2023/10/11 15:09:08 by yena             ###   ########.fr       */
+/*   Updated: 2023/10/14 14:51:36 by yena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,10 @@
 
 class Serializer {
  public:
+  Serializer();
+  Serializer(const Serializer &other);
+  Serializer &operator=(const Serializer &other);
+  ~Serializer();
   static uintptr_t serialize(Data *ptr);
   static Data *deserialize(uintptr_t raw);
 

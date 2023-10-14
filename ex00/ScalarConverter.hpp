@@ -6,7 +6,7 @@
 /*   By: yena <yena@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 13:29:50 by yena              #+#    #+#             */
-/*   Updated: 2023/10/11 15:07:50 by yena             ###   ########.fr       */
+/*   Updated: 2023/10/14 14:48:55 by yena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,10 @@ class ScalarConverter {
  public:
   static std::string _str;
 
+  ScalarConverter();
+  ScalarConverter(const ScalarConverter &other);
+  ScalarConverter &operator=(const ScalarConverter &other);
+  ~ScalarConverter();
   static void convert(std::string str);
   static void strToSpecial();
   static void strToChar();
