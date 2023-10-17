@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Base.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yena <yena@student.42seoul.kr>             +#+  +:+       +#+        */
+/*   By: yena <yena@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 16:30:07 by yena              #+#    #+#             */
-/*   Updated: 2023/10/14 14:53:22 by yena             ###   ########.fr       */
+/*   Updated: 2023/10/17 13:40:02 by yena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,16 +16,12 @@
 
 #include "Base.hpp"
 
-Base::Base() {}
+Base::Base() { std::srand(time(NULL)); }
 
-Base::Base(const Base &other) {
-  if (this != &other)
-    *this = other;
-}
+Base::Base(const Base &other) {}
 
 Base &Base::operator=(const Base &other) {
-  if (this != &other)
-    *this = other;
+  if (this != &other) *this = other;
   return (*this);
 }
 

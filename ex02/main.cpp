@@ -3,23 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yena <yena@student.42seoul.kr>             +#+  +:+       +#+        */
+/*   By: yena <yena@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 15:24:25 by yena              #+#    #+#             */
-/*   Updated: 2023/10/11 15:12:23 by yena             ###   ########.fr       */
+/*   Updated: 2023/10/17 13:41:54 by yena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
 #include <cstdlib>
 #include <ctime>
-#include "Base.hpp"
+#include <iostream>
+
 #include "A.hpp"
 #include "B.hpp"
+#include "Base.hpp"
 #include "C.hpp"
 
 Base *generate() {
-  std::srand(time(NULL));
   int random = std::rand() % 3;
   if (random == 0)
     return new A();
@@ -30,27 +30,26 @@ Base *generate() {
 }
 
 void identify(Base *p) {
-  std::cout << "------------------- IDENTIFY *p -------------------" << std::endl;
-  if (dynamic_cast<A *>(p))
-    std::cout << "type: A" << std::endl;
-  if (dynamic_cast<B *>(p))
-    std::cout << "type: B" << std::endl;
-  if (dynamic_cast<C *>(p))
-    std::cout << "type: C" << std::endl;
+  std::cout << "------------------- IDENTIFY *p -------------------"
+            << std::endl;
+  if (dynamic_cast<A *>(p)) std::cout << "type: A" << std::endl;
+  if (dynamic_cast<B *>(p)) std::cout << "type: B" << std::endl;
+  if (dynamic_cast<C *>(p)) std::cout << "type: C" << std::endl;
 }
 
 void identify(Base &p) {
-  std::cout << "------------------- IDENTIFY &p -------------------" << std::endl;
+  std::cout << "------------------- IDENTIFY &p -------------------"
+            << std::endl;
   try {
-    (void) dynamic_cast<A &>(p);
+    (void)dynamic_cast<A &>(p);
     std::cout << "type: A" << std::endl;
   } catch (std::exception &e) {
     try {
-      dynamic_cast<B &>(p);
+      (void)dynamic_cast<B &>(p);
       std::cout << "type: B" << std::endl;
     } catch (std::exception &e) {
       try {
-        dynamic_cast<C &>(p);
+        (void)dynamic_cast<C &>(p);
         std::cout << "type: C" << std::endl;
       } catch (std::exception &e) {
         std::cout << "Error: unknown type" << std::endl;
@@ -64,6 +63,7 @@ int main() {
   Base &baseRef = *base;
 
   identify(base);
+  std::cout << std::endl;
   identify(baseRef);
   delete base;
 

@@ -6,7 +6,7 @@
 /*   By: yena <yena@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 13:29:50 by yena              #+#    #+#             */
-/*   Updated: 2023/10/17 11:35:28 by yena             ###   ########.fr       */
+/*   Updated: 2023/10/17 13:32:27 by yena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,39 +71,58 @@ void ScalarConverter::strToNumeric() {
 }
 
 void ScalarConverter::printChar() {
+  std::stringstream ss(_str);
+  int i;
+
+  ss >> i;
   std::cout << "char: ";
-  if (std::stod(_str) < 32 || std::stod(_str) > 126)
+  if (i < 32 || i > 126)
     std::cout << "Non displayable" << std::endl;
   else
-    std::cout << static_cast<char>(std::stod(_str)) << std::endl;
+    std::cout << static_cast<char>(i) << std::endl;
 }
 
 void ScalarConverter::printInt() {
+  std::stringstream ss(_str);
+  double d = std::strtod(_str.c_str(), nullptr);
+  int i;
+
+  ss >> i;
   std::cout << "int: ";
-  if (std::stod(_str) > INT_MAX || std::stod(_str) < INT_MIN)
+  if (d > INT_MAX || d < INT_MIN)
     std::cout << "impossible" << std::endl;
   else
-    std::cout << std::stoi(_str) << std::endl;
+    std::cout << i << std::endl;
 }
 
 void ScalarConverter::printFloat() {
+  std::stringstream ss(_str);
+  float f = static_cast<float>(std::strtod(_str.c_str(), nullptr));
+  int i;
+
+  ss >> i;
   std::cout << "float: ";
-  if (std::stof(_str) > FLOAT_MAX || std::stof(_str) < FLOAT_MIN)
+  if (f > FLOAT_MAX || f < FLOAT_MIN)
     std::cout << "impossible" << std::endl;
   else {
-    std::cout << std::stof(_str);
-    if (std::stof(_str) == std::stoi(_str)) std::cout << ".0";
+    std::cout << f;
+    if (f == i) std::cout << ".0";
     std::cout << "f" << std::endl;
   }
 }
 
 void ScalarConverter::printDouble() {
+  std::stringstream ss(_str);
+  double d = (std::strtod(_str.c_str(), nullptr));
+  int i;
+
+  ss >> i;
   std::cout << "double: ";
-  if (std::stod(_str) > DOUBLE_MAX || std::stod(_str) < DOUBLE_MIN)
+  if (d > DOUBLE_MAX || d < DOUBLE_MIN)
     std::cout << "impossible" << std::endl;
   else {
-    std::cout << std::stod(_str);
-    if (std::stod(_str) == std::stoi(_str)) std::cout << ".0";
+    std::cout << d;
+    if (d == i) std::cout << ".0";
     std::cout << std::endl;
   }
 }
