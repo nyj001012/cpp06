@@ -6,7 +6,7 @@
 /*   By: yena <yena@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 13:29:50 by yena              #+#    #+#             */
-/*   Updated: 2023/10/17 13:32:27 by yena             ###   ########.fr       */
+/*   Updated: 2023/10/17 18:24:48 by yena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,7 +106,7 @@ void ScalarConverter::printFloat() {
     std::cout << "impossible" << std::endl;
   else {
     std::cout << f;
-    if (f == i) std::cout << ".0";
+    if (f == i && f < 1000000) std::cout << ".0";
     std::cout << "f" << std::endl;
   }
 }
@@ -122,7 +122,7 @@ void ScalarConverter::printDouble() {
     std::cout << "impossible" << std::endl;
   else {
     std::cout << d;
-    if (d == i) std::cout << ".0";
+    if (d == i && d < 1000000) std::cout << ".0";
     std::cout << std::endl;
   }
 }
