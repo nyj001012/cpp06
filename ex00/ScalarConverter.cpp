@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScalarConverter.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yena <yena@student.42seoul.kr>             +#+  +:+       +#+        */
+/*   By: yena <yena@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 13:29:50 by yena              #+#    #+#             */
-/*   Updated: 2023/10/14 14:52:14 by yena             ###   ########.fr       */
+/*   Updated: 2023/10/17 11:35:28 by yena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,16 +18,14 @@
 
 std::string ScalarConverter::_str = "";
 
-void ScalarConverter::ScalarConverter() {}
+ScalarConverter::ScalarConverter() {}
 
-void ScalarConverter::ScalarConverter(const ScalarConverter &other) {
-  if (this != &other)
-    _str = other._str;
+ScalarConverter::ScalarConverter(const ScalarConverter &other) {
+  if (this != &other) _str = other._str;
 }
 
 ScalarConverter &ScalarConverter::operator=(const ScalarConverter &other) {
-  if (this != &other)
-    _str = other._str;
+  if (this != &other) _str = other._str;
   return *this;
 }
 
@@ -49,12 +47,10 @@ void ScalarConverter::strToSpecial() {
   std::cout << "char: impossible" << std::endl;
   std::cout << "int: impossible" << std::endl;
   std::cout << "float: " << _str;
-  if (_str == "nan"
-      || _str == "inf" || _str == "-inf" || _str == "+inf")
+  if (_str == "nan" || _str == "inf" || _str == "-inf" || _str == "+inf")
     std::cout << "f";
   std::cout << std::endl;
-  if (_str == "nanf"
-      || _str == "inff" || _str == "-inff" || _str == "+inff")
+  if (_str == "nanf" || _str == "inff" || _str == "-inff" || _str == "+inff")
     std::cout << "double: " << _str.substr(0, _str.length() - 1) << std::endl;
   else
     std::cout << "double: " << _str << std::endl;
@@ -96,8 +92,7 @@ void ScalarConverter::printFloat() {
     std::cout << "impossible" << std::endl;
   else {
     std::cout << std::stof(_str);
-    if (std::stof(_str) == std::stoi(_str))
-      std::cout << ".0";
+    if (std::stof(_str) == std::stoi(_str)) std::cout << ".0";
     std::cout << "f" << std::endl;
   }
 }
@@ -108,9 +103,7 @@ void ScalarConverter::printDouble() {
     std::cout << "impossible" << std::endl;
   else {
     std::cout << std::stod(_str);
-    if (std::stod(_str) == std::stoi(_str))
-      std::cout << ".0";
+    if (std::stod(_str) == std::stoi(_str)) std::cout << ".0";
     std::cout << std::endl;
   }
 }
-
