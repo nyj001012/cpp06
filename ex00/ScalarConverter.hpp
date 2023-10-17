@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScalarConverter.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yena <yena@student.42seoul.kr>             +#+  +:+       +#+        */
+/*   By: yena <yena@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 13:29:50 by yena              #+#    #+#             */
-/*   Updated: 2023/10/14 14:48:55 by yena             ###   ########.fr       */
+/*   Updated: 2023/10/17 11:14:48 by yena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 
 #include <iostream>
 #include <sstream>
+
 #include "utils.hpp"
 
 #define FLOAT_MAX 3.4028235e+38
@@ -30,10 +31,6 @@ class ScalarConverter {
  public:
   static std::string _str;
 
-  ScalarConverter();
-  ScalarConverter(const ScalarConverter &other);
-  ScalarConverter &operator=(const ScalarConverter &other);
-  ~ScalarConverter();
   static void convert(std::string str);
   static void strToSpecial();
   static void strToChar();
@@ -44,7 +41,10 @@ class ScalarConverter {
   static void printDouble();
 
  private:
-
+  ScalarConverter();
+  ScalarConverter(const ScalarConverter &other);
+  ScalarConverter &operator=(const ScalarConverter &other);
+  ~ScalarConverter();
 };
 
-#endif //EX00__SCALARCONVERTER_HPP_
+#endif  // EX00__SCALARCONVERTER_HPP_
